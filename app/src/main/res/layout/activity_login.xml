@@ -3,37 +3,45 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".LoginActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_margin="50dp"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:layout_margin="10dp">
 
         <Space
-            android:layout_width="wrap_content"
-            android:layout_height="200dp" />
+            android:layout_width="match_parent"
+            android:layout_height="100dp" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="Vitrix Health"
+            android:text="Login"
             android:textColor="#228B22"
-            android:textSize="0.50in" />
+            android:textSize="0.20in" />
 
-        <Button
-            android:id="@+id/main_login"
+        <EditText
+            android:id="@+id/login_email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Login" />
+            android:ems="10"
+            android:inputType="textEmailAddress"
+            android:hint="Email" />
 
-        <Button
-            android:id="@+id/main_register"
+        <EditText
+            android:id="@+id/login_password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Register" />
+            android:ems="10"
+            android:inputType="textVisiblePassword"
+            android:hint="Password" />
+
+        <Button
+            android:id="@+id/login_submit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Submit" />
     </LinearLayout>
-
 </android.support.constraint.ConstraintLayout>

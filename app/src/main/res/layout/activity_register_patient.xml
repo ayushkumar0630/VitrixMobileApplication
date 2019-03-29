@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".RegisterActivity">
+    tools:context=".RegisterPatientActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -18,7 +18,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Register New Dentist"
+            android:text="Register Patient"
             android:textColor="#228B22"
             android:textSize="0.20in" />
 
@@ -28,77 +28,84 @@
             android:orientation="horizontal">
 
             <EditText
-                android:id="@+id/register_first_name"
+                android:id="@+id/first_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:ems="10"
                 android:inputType="textPersonName"
-                android:hint="Name" />
+                android:text="Name" />
 
             <EditText
-                android:id="@+id/register_last_name"
+                android:id="@+id/last_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:ems="10"
                 android:inputType="textPersonName"
-                android:hint="Last Name" />
+                android:text="Last Name" />
         </LinearLayout>
 
         <EditText
-            android:id="@+id/register_username"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="text"
-            android:hint="Username" />
-
-        <EditText
-            android:id="@+id/register_email"
+            android:id="@+id/email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="textEmailAddress"
-            android:hint="Email" />
+            android:text="Email" />
 
         <EditText
-            android:id="@+id/register_password"
+            android:id="@+id/pnumber"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:inputType="textPassword"
-            android:hint="Password" />
+            android:text="Phone Number" />
 
         <EditText
-            android:id="@+id/register_pnumber"
+            android:id="@+id/birthday"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:hint="Phone Number" />
+            android:text="Birth Date MM-DD-YYYY" />
 
         <EditText
-            android:id="@+id/register_title"
+            android:id="@+id/address"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Title/Role" />
+            android:ems="10"
+            android:text="Home Address" />
 
-        <EditText
-            android:id="@+id/register_institute"
+        <RadioGroup
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Institute" />
+            android:layout_height="30dp"
+            android:id="@+id/gender"
+            android:orientation="horizontal">
 
-        <EditText
-            android:id="@+id/register_address"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Institute address" />
+            <RadioButton
+                android:id="@+id/radio_male"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="M" />
+
+            <RadioButton
+                android:id="@+id/radio_female"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="F" />
+        </RadioGroup>
 
         <Button
-            android:id="@+id/register_submit"
+            android:id="@+id/create_patient_id"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Submit" />
+            android:text="Create Patient ID" />
+
+        <Button
+            android:id="@+id/start_screening"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Start Screening" />
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>

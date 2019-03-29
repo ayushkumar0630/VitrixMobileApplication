@@ -1,5 +1,6 @@
 package org.example.vitrix;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -8,6 +9,11 @@ import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
+import java.io.IOException;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.ProtocolException;
+import java.net.URL;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -15,58 +21,70 @@ import java.sql.SQLException;
 
 public class RegisterActivity extends AppCompatActivity {
 
+    private final int SETTINGS_INT = 1;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
-        final EditText name = findViewById(R.id.name);
-        final EditText email = findViewById(R.id.email);
-        final EditText phone = findViewById(R.id.pnumber);
+        final String first_name = findViewById(R.id.register_first_name).toString();
+        final String last_name = findViewById(R.id.register_last_name).toString();
+        final String username = findViewById(R.id.register_username).toString();
+        final String email = findViewById(R.id.register_email).toString();
+        final String password = findViewById(R.id.register_password).toString();
+        final String phone = findViewById(R.id.register_pnumber).toString();
+        final String title = findViewById(R.id.register_title).toString();
+        final String institute = findViewById(R.id.register_institute).toString();
+        final String address = findViewById(R.id.register_address).toString();
 
-        final RadioGroup gender = findViewById(R.id.gender);
 
-        Button submit = findViewById(R.id.submit);
+        Button submit = findViewById(R.id.register_submit);
+
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                int pId = 6789;
-                String pName = name.getText().toString();
-                String pEmail = email.getText().toString();
-                String pPhone = phone.getText().toString();
-                final String pGender = ((RadioButton)findViewById(gender.getCheckedRadioButtonId())).getText().toString();
+                //Access Api
+                boolean success = AccessRegister(first_name, last_name, institute, username ,password);
 
-
-                try {
-                    writeToDB(pId, pName, pEmail, pPhone, pGender);
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                } catch (ClassNotFoundException e) {
-                    e.printStackTrace();
+                if (success) {
+                    Intent launchRegisterProfile = new Intent(RegisterActivity.this, MainActivity.class);
+                    startActivityForResult(launchRegisterProfile, SETTINGS_INT);
                 }
             }
         });
 
     }
 
-    public void writeToDB(int id, String name, String email, String phone, String gender) throws SQLException, ClassNotFoundException {
-        Class.forName("com.mysql.cj.jdbc.Driver");
-        String databaseURL = "jdbc:mysql://localhost:3306/vitrix_data?user=admin&password=toor";
+    private boolean AccessRegister(String first_name, String last_name, String clinic_name, String username, String password) {
+        try {
+            String request = "http://api.vitrix.io/account/login";
+            URL url = new URL(request);
+            HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+            connection.setDoOutput(true);
+            connection.setInstanceFollowRedirects(true);
+            HttpURLConnection.setFollowRedirects(true);
+            connection.setRequestMethod("POST");
+            connection.setRequestProperty("Content-Type", "text/plain");
+            connection.setRequestProperty("charset", "utf-8");
 
-        Connection conn = DriverManager.getConnection(databaseURL);
+            connection.setRequestProperty("first_name", first_name);
+            connection.setRequestProperty("last_name", last_name);
+            connection.setRequestProperty("clinic_name", clinic_name);
+            connection.setRequestProperty("username", username);
+            connection.setRequestProperty("password", password);
 
-        String query = " insert into user_data (iduser_data, name, email, phone, gender)"
-                + " values (?, ?, ?, ?, ?)";
-
-        PreparedStatement preparedStmt = conn.prepareStatement(query);
-        preparedStmt.setInt     (1, id);
-        preparedStmt.setString  (2, name);
-        preparedStmt.setString  (3, email);
-        preparedStmt.setString  (4, phone);
-        preparedStmt.setString  (5, gender);
-
-        preparedStmt.execute();
-
-        conn.close();
+            connection.connect();
+        } catch (ProtocolException e) {
+            e.printStackTrace();
+            return false;
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+            return false;
+        } catch (IOException e) {
+            e.printStackTrace();
+            return false;
+        }
+        return true;
     }
 }

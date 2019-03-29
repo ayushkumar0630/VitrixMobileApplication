@@ -19,8 +19,17 @@ public class MainActivity extends AppCompatActivity {
         register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent launchSettingsIntent = new Intent(MainActivity.this, RegisterActivity.class);
-                startActivityForResult(launchSettingsIntent, SETTINGS_INT);
+                Intent launchRegister = new Intent(MainActivity.this, RegisterActivity.class);
+                startActivityForResult(launchRegister, SETTINGS_INT);
+            }
+        });
+
+        Button login = findViewById(R.id.main_login);
+        login.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent launchLogin = new Intent(MainActivity.this, LoginActivity.class);
+                startActivityForResult(launchLogin, SETTINGS_INT);
             }
         });
     }
