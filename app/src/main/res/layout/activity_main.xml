@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity"
-    android:background="@drawable/background">
+    android:background="@drawable/gradientlist"
+    android:id="@+id/mainlayout">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -24,7 +25,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            app:srcCompat="@drawable/VH_LOGO_White_No_text" />
+            app:srcCompat="@drawable/vh_logo_white_no_text" />
 
         <Space
             android:layout_width="wrap_content"
