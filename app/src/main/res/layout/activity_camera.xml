@@ -9,7 +9,18 @@
 
     <ImageView
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toTopOf="@+id/StartScreeningButton"
+        android:id="@+id/ScreeningPicture"/>
+
+    <Button
+        android:id="@+id/StartScreeningButton"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="Start Screening"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:layout_editor_absoluteX="0dp"
+        android:background="@drawable/button"/>
 </android.support.constraint.ConstraintLayout>
 
 

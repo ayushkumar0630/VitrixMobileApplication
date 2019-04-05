@@ -7,6 +7,7 @@ import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -45,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
         // adding camera capture button
-        Button capture = findViewById(R.id.captureImage);
+        ImageButton capture = findViewById(R.id.captureImage);
         capture.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v){
