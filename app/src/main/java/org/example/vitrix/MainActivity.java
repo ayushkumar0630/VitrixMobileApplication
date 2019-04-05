@@ -22,8 +22,8 @@ public class MainActivity extends AppCompatActivity {
         // Set up dynamic background
         mainlayout = findViewById(R.id.mainlayout);
         dynamicbackground = (AnimationDrawable) mainlayout.getBackground();
-        dynamicbackground.setEnterFadeDuration(4000);
-        dynamicbackground.setExitFadeDuration(4000);
+        dynamicbackground.setEnterFadeDuration(2000);
+        dynamicbackground.setExitFadeDuration(2000);
         dynamicbackground.start();
 
         Button register = findViewById(R.id.main_register);
@@ -41,6 +41,16 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent launchLogin = new Intent(MainActivity.this, LoginActivity.class);
                 startActivityForResult(launchLogin, SETTINGS_INT);
+            }
+        });
+
+        // adding camera capture button
+        Button capture = findViewById(R.id.captureImage);
+        capture.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v){
+                Intent launchCamera = new Intent(MainActivity.this, CameraActivity.class);
+                startActivityForResult(launchCamera, SETTINGS_INT);
             }
         });
     }

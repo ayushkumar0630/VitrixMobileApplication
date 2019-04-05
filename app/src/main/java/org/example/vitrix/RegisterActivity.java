@@ -1,7 +1,9 @@
 package org.example.vitrix;
 
 import android.content.Intent;
+import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
+import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
@@ -22,6 +24,8 @@ import java.sql.SQLException;
 public class RegisterActivity extends AppCompatActivity {
 
     private final int SETTINGS_INT = 1;
+    private ConstraintLayout mainlayout;
+    private AnimationDrawable dynamicbackground;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +44,13 @@ public class RegisterActivity extends AppCompatActivity {
 
 
         Button submit = findViewById(R.id.register_submit);
+
+        // Set up dynamic background
+        mainlayout = findViewById(R.id.mainlayout);
+        dynamicbackground = (AnimationDrawable) mainlayout.getBackground();
+        dynamicbackground.setEnterFadeDuration(2000);
+        dynamicbackground.setExitFadeDuration(2000);
+        dynamicbackground.start();
 
         submit.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -1,29 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".RegisterActivity">
+    tools:context=".RegisterActivity"
+    android:background="@drawable/gradientlist"
+    android:id="@+id/mainlayout">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_margin="50dp"
+        android:layout_marginBottom="8dp"
         android:orientation="vertical"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="0dp">
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:layout_editor_absoluteX="0dp">
 
 
-        <Space
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="90dp"
+            android:layout_height="77dp"
+            android:layout_gravity="center"
+            app:srcCompat="@drawable/vh_logo_white_no_text" />
+
+        <View
             android:layout_width="match_parent"
-            android:layout_height="100dp" />
+            android:layout_height="3px"
+            android:background="#ffffff"
+            android:layout_marginBottom="20px"
+            android:layout_marginTop="20px"/>
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Register New Dentist"
-            android:textColor="#228B22"
-            android:textSize="0.20in" />
+            android:text="Register"
+            android:textAlignment="center"
+            android:textColor="#ffffff"
+            android:textSize="0.20in"
+            app:backgroundTint="#ffffff"/>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -35,68 +51,104 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:backgroundTint="#ffffff"
                 android:ems="10"
+                android:hint="Name"
                 android:inputType="textPersonName"
-                android:hint="Name" />
+                android:textColor="#ffffff"
+                android:textColorHint="#ffffff"
+                app:backgroundTint="#ffffff"/>
 
             <EditText
                 android:id="@+id/register_last_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:backgroundTint="#ffffff"
                 android:ems="10"
+                android:hint="Last Name"
                 android:inputType="textPersonName"
-                android:hint="Last Name" />
+                android:textColor="#ffffff"
+                android:textColorHint="#ffffff"
+                app:backgroundTint="#ffffff"/>
         </LinearLayout>
 
         <EditText
             android:id="@+id/register_username"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:backgroundTint="#ffffff"
             android:ems="10"
+            android:hint="Username"
             android:inputType="text"
-            android:hint="Username" />
+            android:textColor="#ffffff"
+            android:textColorHint="#ffffff"
+            app:backgroundTint="#ffffff"/>
 
         <EditText
             android:id="@+id/register_email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:backgroundTint="#ffffff"
             android:ems="10"
+            android:hint="Email"
             android:inputType="textEmailAddress"
-            android:hint="Email" />
+            android:textColor="#ffffff"
+            android:textColorHint="#ffffff"
+            app:backgroundTint="#ffffff"/>
 
         <EditText
             android:id="@+id/register_password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:backgroundTint="#ffffff"
             android:ems="10"
+            android:hint="Password"
             android:inputType="textPassword"
-            android:hint="Password" />
+            android:textColor="#ffffff"
+            android:textColorHint="#ffffff"
+            app:backgroundTint="#ffffff"/>
 
         <EditText
             android:id="@+id/register_pnumber"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:backgroundTint="#ffffff"
             android:ems="10"
-            android:hint="Phone Number" />
+            android:hint="Phone Number"
+            android:textColor="#ffffff"
+            android:textColorHint="#ffffff"
+            app:backgroundTint="#ffffff"/>
 
         <EditText
             android:id="@+id/register_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Title/Role" />
+            android:backgroundTint="#ffffff"
+            android:hint="Title/Role"
+            android:textColor="#ffffff"
+            android:textColorHint="#ffffff"
+            app:backgroundTint="#ffffff"/>
 
         <EditText
             android:id="@+id/register_institute"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Institute" />
+            android:backgroundTint="#ffffff"
+            android:hint="Institute"
+            android:textColor="#ffffff"
+            android:textColorHint="#ffffff"
+            app:backgroundTint="#ffffff"/>
 
         <EditText
             android:id="@+id/register_address"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Institute address" />
+            android:backgroundTint="#ffffff"
+            android:hint="Institute address"
+            android:textColor="#ffffff"
+            android:textColorHint="#ffffff"
+            app:backgroundTint="#ffffff"/>
 
         <Button
             android:id="@+id/register_submit"
