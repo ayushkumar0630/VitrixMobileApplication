@@ -2,7 +2,9 @@ package org.example.vitrix;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.Camera;
 import android.graphics.drawable.AnimationDrawable;
+import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.constraint.ConstraintLayout;
@@ -10,6 +12,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+
+import java.lang.reflect.Parameter;
+import java.security.Policy;
 
 public class CameraActivity extends AppCompatActivity {
 
@@ -27,7 +32,9 @@ public class CameraActivity extends AppCompatActivity {
             @Override
             public void onClick(View v){
                 Intent camera = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-                startActivityForResult(camera, SETTINGS_INT);
+                // Uri fileUri = getOutputMediaFileUri(MediaStore.MEDIA_TYPE_IMAGE);
+                // camera.putExtra(android.provider.MediaStore.EXTRA_OUTPUT, fileUri);
+                startActivityForResult(camera, 1337);
             }
 
         });
