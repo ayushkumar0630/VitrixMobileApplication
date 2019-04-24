@@ -44,7 +44,7 @@ public class LoginActivity extends AppCompatActivity {
 
     private boolean AccessLogin(String email, String password) {
         try {
-            String request = "http://api.vitrix.io/account/login";
+            String request = "http://api.vitrix.io/auth/login/";
             URL url = new URL(request);
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
             connection.setDoOutput(true);

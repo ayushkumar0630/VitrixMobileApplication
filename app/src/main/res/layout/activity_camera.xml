@@ -8,19 +8,19 @@
     tools:context=".CameraActivity">
 
     <ImageView
+        android:id="@+id/ScreeningPicture"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:layout_constraintBottom_toTopOf="@+id/StartScreeningButton"
-        android:id="@+id/ScreeningPicture"/>
+        app:layout_constraintBottom_toTopOf="@+id/StartScreeningButton" />
 
     <Button
         android:id="@+id/StartScreeningButton"
         android:layout_width="match_parent"
         android:layout_height="50dp"
+        android:background="@drawable/button"
         android:text="Start Screening"
         app:layout_constraintBottom_toBottomOf="parent"
-        tools:layout_editor_absoluteX="0dp"
-        android:background="@drawable/button"/>
+        tools:layout_editor_absoluteX="0dp" />
 </android.support.constraint.ConstraintLayout>
 
 
